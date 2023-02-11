@@ -1,6 +1,6 @@
 import { CIRCLE } from "../constants.js";
 
-function WinnerScreen(winner){
+function WinnerScreen({winner}){
     return (
         <div className="winner-screen">
             {winner != "DRAW" && <h1>Winner is {winner == CIRCLE ? "⭕" : "❌"}</h1>}

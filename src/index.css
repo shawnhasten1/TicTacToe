@@ -35,6 +35,12 @@ body {
   background-color: white;
 }
 
+p{
+  margin: 0;
+  text-align: center;
+}
+
 .shape{
   font-size: 4.5rem;
+  margin: 0;
 }

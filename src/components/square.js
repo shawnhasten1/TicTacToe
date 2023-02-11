@@ -7,24 +7,26 @@ function Square({position, value, takeTurn}) {
     }
     return (
       <div className="square" onClick={handleClick}>
-        {value == CIRCLE && <Circle/>}
-        {value == CROSS && <Cross/>}
+        {value == CIRCLE && <Circle position={position}/>}
+        {value == CROSS && <Cross position={position}/>}
       </div>
     );
 }
 
-function Circle(){
+function Circle({position}){
     return (
-        <div className="shape circle">
-            <p>⭕</p>
+        <div>
+            <p className="shape circle">⭕</p>
+            <p>{position}</p>
         </div>
     );
 }
 
-function Cross(){
+function Cross({position}){
     return (
-        <div className="shape cross">
-            <p>❌</p>
+        <div>
+            <p className="shape cross">❌</p>
+            <p>{position}</p>
         </div>
     );
 }

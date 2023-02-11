@@ -17,8 +17,6 @@ function Grid() {
     function takeTurn(position){
         const positions = [...state.positions];
         positions[position] = state.player;
-        console.log(position)
-        console.log(positions)
 
         setState({
             player: state.player == CIRCLE ? CROSS : CIRCLE,
@@ -43,7 +41,6 @@ function Grid() {
 }
 
 function detectWinner(positions){
-    const players = [CIRCLE, CROSS];
     const winningLines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -57,13 +54,10 @@ function detectWinner(positions){
     if(positions.every((position) => position != EMPTY)){
         return "DRAW";
     }
-    for (let i = 0; i < players.length; i++) {
-        const player = players[i];
-        for (let j = 0; j < winningLines.length; j++) {
-            const [a, b, c] = winningLines[j];
-            if (positions[a] === player && positions[b] === player && positions[c] === player) {
-                return player;
-            }
+    for(let i = 0; i < winningLines.length; i++){
+        const [a, b, c] = winningLines[i];
+        if(positions[a] != EMPTY && positions[a] == positions[b] && positions[a] == positions[c]){
+            return positions[a];
         }
     }
     return null;
